@@ -1,3 +1,5 @@
+# curl -fsSL https://raw.githubusercontent.com/tomduval/code-server-gce/master/install.sh | sh
+
 curl -fsSL https://code-server.dev/install.sh | sh
 systemctl --user enable --now code-server
 # sed -i.bak 's/password: .*/password: gHtdRANcTRem/' ~/.config/code-server/config.yaml
@@ -39,6 +41,7 @@ curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/requireme
 ~/venv/bin/pip install -r requirements.txt
 
 curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/settings.json > settings.json
+sed -i.bak 's|~|'${HOME}'|g' ~/settings.json
 mv settings.json .local/share/code-server/User/settings.json
 
 git config --global --add user.email tomdvdb@gmail.com
