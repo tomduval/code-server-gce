@@ -1,0 +1,38 @@
+{
+  "terminal.integrated.shell.linux": "/home/coder/bin/code-shell",
+  "window.zoomLevel": 0,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "git.autofetch": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/.idea": true
+  },
+  "gitlens.gitCommands.closeOnFocusOut": true,
+  "python.linting.ignorePatterns": [
+    ".vscode/*.py",
+    "**/site-packages/**/*.py",
+    "alembic/*.py"
+  ],
+  "editor.formatOnSave": true,
+  "files.autoSave": "off",
+  "python.jediEnabled": false,
+  "python.languageServer": "Microsoft",
+  "gitlens.showWhatsNewAfterUpgrades": false
+}

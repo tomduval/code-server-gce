@@ -1,0 +1,16 @@
+runtime: custom
+env: flex
+entrypoint: docker run -it -p 0.0.0.0:8080:8080 -v "$PWD:/home/coder/project" -u "$(id -u):$(id -g)" --env PASSWORD=hello123 codercom/code-server:latest
+
+service: code
+
+manual_scaling:
+  instances: 1
+
+env_variables:
+  PASSWORD: "hello123"
+
+resources:
+  cpu: .5
+  memory_gb: 1
+  disk_size_gb: 10
