@@ -41,8 +41,17 @@ curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/requireme
 ~/venv/bin/pip install -r requirements.txt
 
 curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/settings.json > settings.json
-sed -i.bak 's|~|'${HOME}'|g' ~/settings.json
 mv settings.json .local/share/code-server/User/settings.json
+sed -i.bak 's|~|'${HOME}'|g' ~/.local/share/code-server/User/settings.json
+
+# Setup ssl
+# point domain at compute via A/AAAA record
+# echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
+#     | sudo tee -a /etc/apt/sources.list.d/caddy-fury.list
+# sudo apt update
+# sudo apt install caddy
+# Change /etc/caddy/Caddyfile -> mydomain.com \n reverse_proxy 0.0.0.0:8080
+# sudo systemctl reload caddy
 
 git config --global --add user.email tomdvdb@gmail.com
 git config --global --add user.name "Tom du Val"
