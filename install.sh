@@ -20,7 +20,9 @@ echo '"\e[B": history-search-forward # arrow down' >> ~/.inputrc
 sudo apt-get install -y git
 
 sudo apt-get install -y tmux
+curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/.tmux.conf > .tmux.conf
 mkdir bin
+curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/code-shell > code-shell
 mv code-shell bin/code-shell
 sudo chmod +x bin/code-shell
 
@@ -33,11 +35,11 @@ code-server --install-extension esbenp.prettier-vscode
 code-server --install-extension mhutchie.git-graph
 code-server --install-extension eamodio.gitlens
 
+curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/requirements.txt > requirements.txt
 ~/venv/bin/pip install -r requirements.txt
 
-mkdir .local/share/code-server/User
+curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/settings.json > settings.json
 mv settings.json .local/share/code-server/User/settings.json
-sudo chown -R coder:coder ~/.local
 
 git config --global --add user.email tomdvdb@gmail.com
 git config --global --add user.name "Tom du Val"
