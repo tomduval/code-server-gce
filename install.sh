@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# curl -fsSL https://raw.githubusercontent.com/tomduval/code-server-gce/master/install.sh | sh
+# curl -fsSL https://raw.githubusercontent.com/tomduval/code-server-gce/master/install.sh | bash
 
 curl -fsSL https://code-server.dev/install.sh | sh
 curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/code-server.service > code-server.service
