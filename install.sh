@@ -1,10 +1,14 @@
 # curl -fsSL https://raw.githubusercontent.com/tomduval/code-server-gce/master/install.sh | sh
 
 curl -fsSL https://code-server.dev/install.sh | sh
-systemctl --user enable --now code-server
-# sed -i.bak 's/password: .*/password: gHtdRANcTRem/' ~/.config/code-server/config.yaml
-sed -i.bak 's/bind-addr: 127.0.0.1:8080/bind-addr: 0.0.0.0:8080/' ~/.config/code-server/config.yaml
-systemctl --user restart code-server
+curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/code-server.service > code-server.service
+mv code-server.service /etc/systemd/system/code-server.service
+read -p 'code-server password: ' codeServerPassword
+sudo sed -i.bak 's|PASSWORD=code-server-password|PASSWORD='${codeServerPassword}'|' /etc/systemd/system/code-server.service
+
+sudo systemctl daemon-reload
+sudo systemctl start code-server.service
+sudo systemctl enable code-server.service
 
 sudo apt update
 

@@ -1,0 +1,13 @@
+[Unit]
+Description=Code Server
+After=network.target
+
+[Service]
+User=thomasdv
+Group=thomasdv
+
+Environment=PASSWORD=code-server-password
+ExecStart=/usr/bin/code-server --bind-addr 0.0.0.0:8080
+
+[Install]
+WantedBy=multi-user.target
