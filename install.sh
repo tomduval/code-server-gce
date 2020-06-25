@@ -1,12 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 
-# curl -fsSL https://raw.githubusercontent.com/tomduval/code-server-gce/master/install.sh | bash
+# curl -fsSL https://raw.githubusercontent.com/tomduval/code-server-gce/master/install.sh | sh
 
 curl -fsSL https://code-server.dev/install.sh | sh
 curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/code-server.service > code-server.service
 sudo mv code-server.service /etc/systemd/system/code-server.service
 
-while read -s -p 'Enter new password: ' NEWPASS && [[ -z "$NEWPASS" ]] ; do
+while read -p 'Enter new password: ' NEWPASS </dev/tty && [[ -z "$NEWPASS" ]] ; do
  echo "No blank passwords!"
 done
 
