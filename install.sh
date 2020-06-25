@@ -2,7 +2,7 @@
 
 curl -fsSL https://code-server.dev/install.sh | sh
 curl https://raw.githubusercontent.com/tomduval/code-server-gce/master/code-server.service > code-server.service
-mv code-server.service /etc/systemd/system/code-server.service
+sudo mv code-server.service /etc/systemd/system/code-server.service
 read -p 'code-server password: ' codeServerPassword
 sudo sed -i.bak 's|PASSWORD=code-server-password|PASSWORD='${codeServerPassword}'|' /etc/systemd/system/code-server.service
 
